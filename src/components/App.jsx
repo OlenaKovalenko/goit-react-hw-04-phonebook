@@ -25,7 +25,6 @@ export const App = () => {
     } else {
       window.localStorage.removeItem(localStorageKey);
     }
-
   }, [contacts])
 
   const addContact = ({name, number}) => {
@@ -39,8 +38,7 @@ export const App = () => {
     const isExist = contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase());
 
     if (isExist) {
-      alert(`${name} is alredy in contacts.`);
-      return;
+      return alert(`${name} is alredy in contacts.`);
     }
 
     setContacts(prevState =>  [...prevState, newContact]
