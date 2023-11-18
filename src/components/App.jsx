@@ -15,7 +15,7 @@ export const App = () => {
   useEffect(() => {
     const savedContacts = window.localStorage.getItem(localStorageKey);
     if (savedContacts) {
-      setContacts(savedContacts);
+      setContacts(JSON.parse(savedContacts));
     }
   }, [])
   
@@ -41,7 +41,7 @@ export const App = () => {
       return alert(`${name} is alredy in contacts.`);
     }
 
-    setContacts(prevState =>  [...prevState, newContact]
+    setContacts(prevState => [...prevState, newContact]
     )
   }
 
