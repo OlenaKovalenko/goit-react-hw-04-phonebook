@@ -32,11 +32,11 @@ export const ContactForm =({ onAdd }) => (
     >
         <StyledForm>
             <FormLabel htmlFor="name">Name</FormLabel>
-            <StyledField type="text" name="name" placeholder="John Smith" />
+            <StyledField type="text" name="name" id="name" placeholder="John Smith" />
             <ErrorMsg name="name" component="div" />
 
             <FormLabel htmlFor="number">Number</FormLabel>
-            <StyledField type="tel" name="number" placeholder="+380..." />
+            <StyledField type="tel" name="number" id="number" placeholder="+380..." />
             <ErrorMsg name="number" component="div" />
 
             <BtnAddContact type="submit">Add contact</BtnAddContact>
