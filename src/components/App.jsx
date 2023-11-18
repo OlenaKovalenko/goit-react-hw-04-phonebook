@@ -13,12 +13,19 @@ export const App = () => {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    const savedContacts = JSON.parse(window.localStorage.getItem(localStorageKey));
-    savedContacts && savedContacts > 0 && setContacts(savedContacts);
+    const savedContacts = window.localStorage.getItem(localStorageKey);
+    if (savedContacts) {
+      setContacts(savedContacts);
+    }
   }, [])
   
   useEffect(() => {
-    setContacts(window.localStorage.setItem(localStorageKey, JSON.stringify(contacts)))
+    if (contacts.length > 0) {
+      window.localStorage.setItem(localStorageKey, JSON.stringify(contacts));
+    } else {
+      window.localStorage.removeItem(localStorageKey);
+    }
+
   }, [contacts])
 
   const addContact = ({name, number}) => {
